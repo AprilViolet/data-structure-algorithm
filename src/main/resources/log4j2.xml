@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="5">
+    <!-- 将一些常用值提取出来 -->
+    <Properties>
+        <!-- 定义日志文件根目录 -->
+        <Property name="logHome" value="log"/>
+        <!-- 定义日志的通用格式 -->
+        <Property name="genericPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <!-- 定义日志分卷文件通用文件名形式 -->
+        <Property name="genericFilePattern" value="%d{yyyy-MM-dd}-%i"/>
+    </Properties>
+    <!-- appender们的定义 -->
+    <Appenders>
+        <Console name="consoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${genericPattern}"/>
+        </Console>
+        <!-- 定义一个文件appender，如果需要，可以以这个为原型粘贴复制修改再定义适合自己的，该appender的详细解释会在教程接下来的部分给出 -->
+        <RollingRandomAccessFile name="rollingRandomAccessFileAppender" fileName="${logHome}/algorithm-data-structure.log"
+                                 filePattern="${logHome}/algorithm-data-structure-${genericFilePattern}.log.zip" append="true">
+            <PatternLayout pattern="${genericPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="25 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1000000" compressionLevel="9"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <asyncRoot level="info">
+            <AppenderRef ref="consoleAppender"/>
+        </asyncRoot>
+
+        <asyncLogger name="cn.aprilviolet.fundamentals" level="info" additivity="false">
+            <AppenderRef ref="consoleAppender"/>
+            <AppenderRef ref="rollingRandomAccessFileAppender"/>
+        </asyncLogger>
+    </Loggers>
+</Configuration>
