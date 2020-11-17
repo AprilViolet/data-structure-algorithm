@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * LeetCode380. 常数时间插入、删除和获取随机元素

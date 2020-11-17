@@ -1,5 +1,7 @@
 package cn.aprilviolet.fundamentals.algorithm.array;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.Arrays;
 
 /**
@@ -11,11 +13,12 @@ import java.util.Arrays;
  * @date 2020.09.29 星期二 23:14
  * @since V1.0.0
  */
+@Log4j2
 public class RemoveDuplicates {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 3, 4, 5, 5, 10, 12};
-        System.out.println(removeDuplicates(nums));
-        System.out.println(Arrays.toString(nums));
+        log.info(removeDuplicates(nums));
+        log.info(Arrays.toString(nums));
     }
 
     /**
@@ -29,7 +32,8 @@ public class RemoveDuplicates {
         if (length == 0) {
             return 0;
         }
-        int slow = 0, fast = 1;
+        int slow = 0;
+        int fast = 1;
 
         while (fast < length) {
             if (nums[slow] != nums[fast]) {

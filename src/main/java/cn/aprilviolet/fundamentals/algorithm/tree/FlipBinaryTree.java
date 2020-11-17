@@ -1,5 +1,7 @@
 package cn.aprilviolet.fundamentals.algorithm.tree;
 
+import cn.aprilviolet.fundamentals.algorithm.base.TreeNode;
+
 /**
  * LeetCode 226.翻转二叉树
  *
@@ -19,15 +21,5 @@ public class FlipBinaryTree {
         invertTree(root.left);
         invertTree(root.right);
         return root;
-    }
-
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

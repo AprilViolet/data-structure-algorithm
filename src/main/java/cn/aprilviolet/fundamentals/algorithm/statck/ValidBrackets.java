@@ -1,5 +1,7 @@
 package cn.aprilviolet.fundamentals.algorithm.statck;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,13 +15,14 @@ import java.util.Map;
  * @date 2020.09.24 星期四 22:12
  * @since V1.0.0
  */
+@Log4j2
 public class ValidBrackets {
     public static void main(String[] args) {
-        System.out.println(isValid("()[]{}"));
-        System.out.println(isValid("([)]{}"));
-        System.out.println(isValid("([)]{}"));
-        System.out.println(isValid("([}}])"));
-        System.out.println(isValid("{[]})[]"));
+        log.info(isValid("()[]{}"));
+        log.info(isValid("([)]{}"));
+        log.info(isValid("([)]{}"));
+        log.info(isValid("([}}])"));
+        log.info(isValid("{[]})[]"));
     }
 
     /**

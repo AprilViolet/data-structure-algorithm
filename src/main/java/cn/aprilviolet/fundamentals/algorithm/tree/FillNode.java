@@ -44,5 +44,5 @@ public class FillNode {
             right = _right;
             next = _next;
         }
-    };
+    }
 }
